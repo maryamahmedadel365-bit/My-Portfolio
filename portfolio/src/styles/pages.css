@@ -1,0 +1,23 @@
+/* Shared by Certificates + Projects pages */
+.page { padding: 80px 14%; min-height: calc(100vh - 70px); background: var(--cream); }
+
+.page-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 40px;
+  display: inline-block;
+  border-bottom: 4px solid var(--yellow);
+  padding-bottom: 6px;
+}
+
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; }
+
+.card { background: white; border-top: 4px solid var(--yellow); padding: 22px; }
+.card h3 { color: var(--navy); font-size: 18px; margin-bottom: 8px; }
+.card p { color: var(--text); font-size: 15px; line-height: 1.6; }
+
+@media (max-width: 700px) {
+  .page { padding: 60px 6%; }
+  .page-title { font-size: 28px; }
+}
