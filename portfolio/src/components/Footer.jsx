@@ -35,28 +35,9 @@ const MailIcon = () => (
   </svg>
 );
 
-const ArrowUpIcon = () => (
-  <svg
-    viewBox="0 0 24 24"
-    width="16"
-    height="16"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <path d="M18 15l-6-6-6 6" />
-  </svg>
-);
-
 const CURRENT_YEAR = new Date().getFullYear();
 
 export default function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   return (
     <footer className="footer">
@@ -150,15 +131,6 @@ export default function Footer() {
           <p className="footer-copy">
             &copy; {CURRENT_YEAR} {PROFILE.name}. All rights reserved.
           </p>
-
-          <button
-            className="footer-back-top"
-            onClick={scrollToTop}
-            aria-label="Back to top of page"
-          >
-            <span>Back to top</span>
-            <ArrowUpIcon />
-          </button>
         </div>
       </div>
     </footer>
