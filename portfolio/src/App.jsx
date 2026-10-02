@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import LandingPage from "./pages/LandingPage";
 import CertificatesPage from "./pages/CertificatesPage";
 import ProjectsPage from "./pages/ProjectsPage";
@@ -15,6 +16,7 @@ export default function App() {
           <Route path="/projects" element={<ProjectsPage />} />
         </Routes>
       </main>
+      <Footer />
     </BrowserRouter>
   );
 }

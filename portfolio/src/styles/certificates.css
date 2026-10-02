@@ -14,10 +14,10 @@
   position: relative;
   overflow: hidden;
 }
-.certs-inner { max-width: 1100px; margin: 0 auto; }
+.certs-inner { width: 100%; }
 
 /* ---------- hero ---------- */
-.certs-hero-band { padding: 70px 14% 56px; position: relative; z-index: 1; }
+.certs-hero-band { padding: 70px var(--page-pad) 56px; position: relative; z-index: 1; }
 .certs-hero {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
@@ -91,7 +91,7 @@
 
 /* ---------- category sections ---------- */
 .cert-band {
-  padding: 56px 14% 64px;
+  padding: 56px var(--page-pad) 64px;
   position: relative;
   z-index: 1;
   scroll-margin-top: var(--nav-h, 70px);
@@ -277,8 +277,8 @@
 @media (max-width: 1000px) {
   .certs-bg-circle { width: 360px; height: 360px; top: -120px; right: -120px; }
   .certs-bg-ring { display: none; }
-  .certs-hero-band { padding: 60px 7% 48px; }
-  .cert-band { padding: 48px 7% 56px; }
+  .certs-hero-band { padding: 60px var(--page-pad) 48px; }
+  .cert-band { padding: 48px var(--page-pad) 56px; }
   .cert-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -291,8 +291,8 @@
 }
 
 @media (max-width: 640px) {
-  .certs-hero-band { padding: 44px 6% 40px; }
-  .cert-band { padding: 40px 6% 48px; }
+  .certs-hero-band { padding: 44px var(--page-pad) 40px; }
+  .cert-band { padding: 40px var(--page-pad) 48px; }
   .certs-title { font-size: 40px; }
   .certs-sub { font-size: 16px; }
   .certs-stats > div { padding: 0 16px; }

@@ -7,6 +7,7 @@ export const PROFILE = {
   cvLink: "/cv.pdf",
   github: "https://github.com/maryamahmedadel365-bit",
   linkedin: "https://www.linkedin.com/in/maryam-ahmed-298875327/",
+  email: "maryamahmedadel365@gmail.com",
 };
 
 export const NAV = [

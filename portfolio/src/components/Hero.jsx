@@ -43,9 +43,11 @@ export default function Hero() {
                 src={PROFILE.photo}
                 alt={`Portrait of ${PROFILE.name}`}
                 onError={() => setImgOk(false)}
+                loading="eager"
+                fetchPriority="high"
               />
             ) : (
-              <span style={{ color: "var(--navy)", fontSize: "5rem", fontWeight: 700, alignSelf: "center" }}>
+              <span className="photo-fallback">
                 {PROFILE.name[0]}
               </span>
             )}

@@ -1,0 +1,259 @@
+/* ==========================================================================
+   Footer Component Styles
+   ========================================================================== */
+
+.footer {
+  background: var(--navy);
+  color: white;
+  border-top: 4px solid var(--yellow);
+  padding: 60px var(--page-pad) 28px;
+  position: relative;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.footer-inner {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* 3-Column Top Grid */
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr 1.35fr;
+  gap: 48px;
+  padding-bottom: 44px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Column 1: Brand */
+.footer-col--brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-name {
+  font-size: 22px;
+  font-weight: 800;
+  color: white;
+  letter-spacing: -0.3px;
+  margin-bottom: 8px;
+}
+
+.footer-role {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-bottom: 18px;
+  line-height: 1.2;
+}
+
+.footer-tagline {
+  color: #b8cbd6;
+  font-size: 14.5px;
+  line-height: 1.65;
+  max-width: 360px;
+}
+
+/* Headings */
+.footer-heading {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--yellow);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+}
+
+/* Column 2: Navigation Links */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links a {
+  color: #d2e0ea;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: var(--yellow);
+  transform: translateX(4px);
+}
+
+/* Column 3: Contact / Social Cards */
+.footer-social-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-social-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+  transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+}
+
+.footer-social-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--yellow);
+  transform: translateY(-2px);
+}
+
+.footer-social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255, 201, 40, 0.15);
+  color: var(--yellow);
+  flex-shrink: 0;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.footer-social-item:hover .footer-social-icon {
+  background: var(--yellow);
+  color: var(--navy);
+}
+
+.footer-social-meta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.footer-social-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #9cb3c5;
+  font-weight: 600;
+}
+
+.footer-social-val {
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Footer Bottom Bar */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 24px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-copy {
+  font-size: 13.5px;
+  color: #8da4b7;
+}
+
+.footer-back-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #b8cbd6;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-back-top:hover {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: var(--navy);
+  transform: translateY(-2px);
+}
+
+.footer-back-top svg {
+  transition: transform 0.2s ease;
+}
+
+.footer-back-top:hover svg {
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .footer {
+    padding: 48px var(--page-pad) 24px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+
+  .footer-col--connect {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    padding: 40px var(--page-pad) 24px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-bottom: 32px;
+  }
+
+  .footer-col--connect {
+    grid-column: auto;
+  }
+
+  .footer-social-val {
+    font-size: 13px;
+  }
+
+  .footer-bottom {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .footer-back-top {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 16px;
+  }
+}

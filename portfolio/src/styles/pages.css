@@ -1,5 +1,11 @@
 /* Shared by Certificates + Projects pages */
-.page { padding: 80px 14%; min-height: calc(100vh - 70px); background: var(--cream); }
+.page {
+  padding: 80px var(--page-pad);
+  min-height: calc(100vh - 70px);
+  min-height: calc(100dvh - 70px);
+  background: var(--cream);
+  box-sizing: border-box;
+}
 
 .page-title {
   font-size: 36px;
@@ -18,6 +24,6 @@
 .card p { color: var(--text); font-size: 15px; line-height: 1.6; }
 
 @media (max-width: 700px) {
-  .page { padding: 60px 6%; }
+  .page { padding: 50px var(--page-pad); }
   .page-title { font-size: 28px; }
 }

@@ -7,6 +7,26 @@
   --soft-blue: #e8eef3;
   --text: #36566d;
   --arch: 190px 70px 0 0;
+  --nav-h: 70px;
+  --page-pad: 12%;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --page-pad: 6%;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --page-pad: 5%;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --page-pad: 4.5%;
+  }
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -17,6 +37,7 @@ body {
   font-family: 'Sora', Arial, sans-serif;
   background: var(--cream);
   color: var(--navy);
+  overflow-x: hidden;
 }
 
 a { text-decoration: none; }
