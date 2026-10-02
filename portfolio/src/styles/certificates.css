@@ -577,46 +577,6 @@
   box-shadow: 0 2px 6px rgba(255, 201, 40, 0.4);
 }
 
-.cert-modal-footer {
-  margin-top: auto;
-  padding-top: 16px;
-  border-top: 1px solid var(--c-line);
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 12px;
-}
-
-.cert-btn--outline {
-  background: transparent;
-  color: var(--navy);
-  border-color: var(--navy);
-  box-shadow: none;
-  padding: 10px 18px;
-}
-
-.cert-btn--outline:hover {
-  background: var(--navy);
-  color: #ffffff;
-}
-
-.cert-modal-close-btn {
-  background: #ffffff;
-  color: var(--navy);
-  border: 1.5px solid var(--c-line);
-  border-radius: 8px;
-  padding: 10px 20px;
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.cert-modal-close-btn:hover {
-  background: var(--c-tint);
-  border-color: var(--navy);
-}
-
 /* ---------- responsive ---------- */
 @media (max-width: 1000px) {
   .certs-bg-circle { width: 360px; height: 360px; top: -120px; right: -120px; }
@@ -646,7 +606,5 @@
   .certs-stats > div { padding: 0 16px; }
   .cert-grid { grid-template-columns: 1fr; }
   .cert-cat-head h2 { font-size: 28px; }
-  .cert-modal-footer { flex-direction: column-reverse; align-items: stretch; gap: 10px; }
-  .cert-modal-footer .cert-btn, .cert-modal-footer .cert-modal-close-btn { width: 100%; text-align: center; }
   .cert-overlay { padding: 16px; }
 }

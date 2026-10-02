@@ -52,7 +52,16 @@ export default function Navbar() {
 
   return (
     <header className="navbar">
-      <Link to="/" className="logo" onClick={() => setOpen(false)}>
+      <Link
+        to="/"
+        className="logo"
+        onClick={() => {
+          setOpen(false);
+          if (pathname === "/") {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }
+        }}
+      >
         {PROFILE.name}
       </Link>
 
@@ -93,7 +102,12 @@ export default function Navbar() {
               <Link
                 to={item.hash ? item.to + item.hash : item.to}
                 className={isActive(item) ? "active" : ""}
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                  setOpen(false);
+                  if (item.to === pathname && !item.hash) {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }
+                }}
               >
                 {item.label}
               </Link>

@@ -179,18 +179,6 @@ function CertModal({ item, onClose }) {
                 </ul>
               </div>
             )}
-
-            {/* Bottom action bar: user can close or view link without scrolling back to the top */}
-            <div className="cert-modal-footer">
-              {item.link && (
-                <a className="cert-btn cert-btn--outline" href={item.link} target="_blank" rel="noreferrer">
-                  <Icon name="external" size={15} /> Open Link
-                </a>
-              )}
-              <button type="button" className="cert-modal-close-btn" onClick={onClose}>
-                Close
-              </button>
-            </div>
           </div>
         </div>
       </div>

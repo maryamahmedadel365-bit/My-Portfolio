@@ -77,7 +77,14 @@ export default function Footer() {
             <ul className="footer-links">
               {NAV.map((item) => (
                 <li key={item.label}>
-                  <Link to={item.hash ? item.to + item.hash : item.to}>
+                  <Link
+                    to={item.hash ? item.to + item.hash : item.to}
+                    onClick={() => {
+                      if (!item.hash) {
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }
+                    }}
+                  >
                     {item.label}
                   </Link>
                 </li>
