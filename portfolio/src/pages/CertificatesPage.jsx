@@ -54,22 +54,40 @@ function HeroArt() {
 /* ---------- card: image first, then text ---------- */
 function CertCard({ item, onOpen }) {
   return (
-    <article className="cert-card" onClick={() => onOpen(item)}>
+    <article
+      className="cert-card"
+      onClick={() => onOpen(item)}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && onOpen(item)}
+    >
+      <div className="cert-card-accent-bar" />
       <div className="cert-img">
         {item.image ? (
           <img src={item.image} alt={item.name} loading="lazy" />
         ) : (
-          <Icon name="medal" size={56} stroke={1.3} />
+          <div className="cert-img-fallback">
+            <Icon name="medal" size={48} stroke={1.3} />
+          </div>
         )}
       </div>
 
       <div className="cert-body">
-        <h3 className="cert-name">{item.name}</h3>
-        <p className="cert-from">From: {item.issuer}</p>
+        <div className="cert-issuer-row">
+          <Icon name="building" size={14} />
+          <span>{item.issuer}</span>
+        </div>
+        <h3 className="cert-name" title={item.name}>{item.name}</h3>
       </div>
 
-      <button className="cert-more" onClick={(e) => { e.stopPropagation(); onOpen(item); }}>
-        <span>See more details</span> <Icon name="arrow" size={18} />
+      <button
+        type="button"
+        className="cert-more"
+        onClick={(e) => { e.stopPropagation(); onOpen(item); }}
+        aria-label={`View details for ${item.name}`}
+      >
+        <span>View Details</span>
+        <span className="cert-more-arrow"><Icon name="arrow" size={16} stroke={2.4} /></span>
       </button>
     </article>
   );
@@ -90,49 +108,90 @@ function CertModal({ item, onClose }) {
 
   return (
     <div className="cert-overlay" onClick={onClose}>
-      <div className="cert-modal" role="dialog" aria-modal="true" onClick={(e) => e.stopPropagation()}>
-        <button className="cert-close" onClick={onClose} aria-label="Close"><Icon name="close" size={22} /></button>
+      <div
+        className="cert-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="cert-modal-title"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Fixed/Sticky close button: stays anchored at the top-right of the modal window at all times */}
+        <button
+          type="button"
+          className="cert-close"
+          onClick={onClose}
+          aria-label="Close dialog"
+          title="Close (Esc)"
+        >
+          <Icon name="close" size={20} stroke={2.4} />
+        </button>
 
-        <div className="cert-modal-left">
-          <div className="cert-preview">
-            {item.image ? <img src={item.image} alt={item.name} /> : <Icon name="medal" size={64} stroke={1.3} />}
+        <div className="cert-modal-scroll">
+          <div className="cert-modal-left">
+            <div className="cert-preview">
+              {item.image ? (
+                <img src={item.image} alt={item.name} />
+              ) : (
+                <div className="cert-preview-fallback">
+                  <Icon name="medal" size={56} stroke={1.3} />
+                  <span>Verified Credential</span>
+                </div>
+              )}
+            </div>
+            {item.link && (
+              <a className="cert-btn" href={item.link} target="_blank" rel="noreferrer">
+                <Icon name="external" size={16} /> <span>View Certificate</span>
+              </a>
+            )}
           </div>
-          {item.link && (
-            <a className="cert-btn" href={item.link} target="_blank" rel="noreferrer">
-              <Icon name="external" /> View Certificate
-            </a>
-          )}
-        </div>
 
-        <div className="cert-modal-right">
-          <span className="cert-tag">{item.category}</span>
-          <h3 className="cert-modal-title">{item.name}</h3>
+          <div className="cert-modal-right">
+            <div className="cert-modal-header">
+              {item.category && <span className="cert-tag">{item.category}</span>}
+              <h3 id="cert-modal-title" className="cert-modal-title">{item.name}</h3>
+            </div>
 
-          <div className="cert-facts">
-            <div><Icon name="building" size={18} /> <b>Issued by</b></div>
-            <div>{item.issuer}</div>
+            <div className="cert-facts">
+              <span className="cert-facts-icon"><Icon name="building" size={16} /></span>
+              <div className="cert-facts-info">
+                <span className="cert-facts-label">Issued by</span>
+                <strong className="cert-facts-val">{item.issuer}</strong>
+              </div>
+            </div>
+
+            {item.summary && (
+              <div className="cert-modal-block">
+                <h4>About this certificate</h4>
+                <p className="cert-summary">{item.summary}</p>
+              </div>
+            )}
+
+            {item.points && item.points.length > 0 && (
+              <div className="cert-modal-block">
+                <h4>Key Learning Points</h4>
+                <ul className="cert-points">
+                  {item.points.map((p, i) => (
+                    <li key={i}>
+                      <span className="cert-check"><Icon name="check" size={12} stroke={3} /></span>
+                      <span>{p}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Bottom action bar: user can close or view link without scrolling back to the top */}
+            <div className="cert-modal-footer">
+              {item.link && (
+                <a className="cert-btn cert-btn--outline" href={item.link} target="_blank" rel="noreferrer">
+                  <Icon name="external" size={15} /> Open Link
+                </a>
+              )}
+              <button type="button" className="cert-modal-close-btn" onClick={onClose}>
+                Close
+              </button>
+            </div>
           </div>
-
-          {item.summary && (
-            <>
-              <h4>About this certificate</h4>
-              <p className="cert-summary">{item.summary}</p>
-            </>
-          )}
-
-          {item.points.length > 0 && (
-            <>
-              <h4>Key Learning Points</h4>
-              <ul className="cert-points">
-                {item.points.map((p, i) => (
-                  <li key={i}>
-                    <span className="cert-check"><Icon name="check" size={12} stroke={3} /></span>
-                    {p}
-                  </li>
-                ))}
-              </ul>
-            </>
-          )}
         </div>
       </div>
     </div>
