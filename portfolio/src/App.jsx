@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import LandingPage from "./pages/LandingPage";
 import CertificatesPage from "./pages/CertificatesPage";
 import ProjectsPage from "./pages/ProjectsPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/certificates" element={<CertificatesPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
       <Footer />
