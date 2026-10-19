@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
 import "../styles/notfound.css";
 
 /* ---------- small inline icons ---------- */
@@ -118,15 +117,15 @@ export default function NotFoundPage() {
             </p>
 
             <div className="notfound-actions">
-              <Link to="/" className="notfound-btn notfound-btn--primary" id="btn-404-home">
-                <ArrowLeftIcon /> Back to Home
-              </Link>
-              <Link to="/projects" className="notfound-btn notfound-btn--secondary" id="btn-404-projects">
-                <FolderIcon /> View Projects
-              </Link>
-              <Link to="/certificates" className="notfound-btn notfound-btn--secondary" id="btn-404-certs">
-                <AwardIcon /> Certificates
-              </Link>
+              <a href="/" className="notfound-btn notfound-btn--primary" id="btn-404-home">
+  <ArrowLeftIcon /> Back to Home
+</a>
+<a href="/#projects" className="notfound-btn notfound-btn--secondary" id="btn-404-projects">
+  <FolderIcon /> View Projects
+</a>
+<a href="/#certificates" className="notfound-btn notfound-btn--secondary" id="btn-404-certs">
+  <AwardIcon /> Certificates
+</a>
             </div>
           </div>
 

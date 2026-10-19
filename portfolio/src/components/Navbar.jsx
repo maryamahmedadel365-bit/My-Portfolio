@@ -10,6 +10,7 @@ export default function Navbar() {
   const sidebarRef = useRef(null);
   const menuBtnRef = useRef(null);
   const active = useActiveSection(IDS);
+  const onHome = window.location.pathname === "/";
 
   const goTo = (id) => {
     setOpen(false);
@@ -59,6 +60,7 @@ export default function Navbar() {
         href="#home"
         className="logo"
         onClick={(e) => {
+          if (!onHome) return;
           e.preventDefault();
           goTo("home");
         }}
@@ -100,9 +102,10 @@ export default function Navbar() {
           {NAV.map((item) => (
             <li key={item.id}>
               <a
-                href={`#${item.id}`}
+                href={`/#${item.id}`}
                 className={active === item.id ? "active" : ""}
                 onClick={(e) => {
+                  if (!onHome) return;
                   e.preventDefault();
                   goTo(item.id);
                 }}

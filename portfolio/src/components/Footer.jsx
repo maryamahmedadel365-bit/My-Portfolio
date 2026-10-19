@@ -37,7 +37,7 @@ const MailIcon = () => (
 const CURRENT_YEAR = new Date().getFullYear();
 
 export default function Footer() {
-
+  const onHome = window.location.pathname === "/";
   return (
     <footer className="footer">
       <div className="footer-inner">
@@ -60,6 +60,7 @@ export default function Footer() {
                   <a
                    href={`#${item.id}`}
                   onClick={(e) => {
+                  if (!onHome) return;
                   e.preventDefault();
                   document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" });
                   }}
