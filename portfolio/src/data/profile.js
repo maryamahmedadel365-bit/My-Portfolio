@@ -10,12 +10,12 @@ export const PROFILE = {
   email: "maryamahmedadel365@gmail.com",
 };
 
-export const NAV = [
-  { label: "Home", to: "/" },
-  { label: "Experience", to: "/", hash: "#about" },
-  { label: "Certificates", to: "/certificates" },
-  { label: "Projects", to: "/projects" },
-];
+   export const NAV = [
+     { label: "Home", id: "home" },
+     { label: "Experience", id: "experience" },
+     { label: "Certificates", id: "certificates" },
+    { label: "Projects", id: "projects" },
+   ];
 
 // Internships are loaded from Portfolio_2.xlsx (see data/internships.js)
 export const ABOUT = {

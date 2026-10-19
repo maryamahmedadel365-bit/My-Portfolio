@@ -1,28 +1,23 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ScrollToTop from "./components/ScrollToTop";
-import ScrollUpButton from "./components/ScrollUpButton";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import LandingPage from "./pages/LandingPage";
-import CertificatesPage from "./pages/CertificatesPage";
+import Hero from "./components/Hero";
+import About from "./components/About";
 import ProjectsPage from "./pages/ProjectsPage";
-import NotFoundPage from "./pages/NotFoundPage";
+import CertificatesPage from "./pages/CertificatesPage";
+import Footer from "./components/Footer";
+import ScrollUpButton from "./components/ScrollUpButton";
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <ScrollToTop />
+    <>
       <Navbar />
       <main>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/certificates" element={<CertificatesPage />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+        <section id="home"><Hero /></section>
+        <section id="experience"><About /></section>
+        <section id="certificates"><CertificatesPage /></section>
+        <section id="projects"><ProjectsPage /></section>
       </main>
       <Footer />
       <ScrollUpButton />
-    </BrowserRouter>
+    </>
   );
 }

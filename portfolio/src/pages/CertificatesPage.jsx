@@ -197,7 +197,7 @@ export default function Certificates() {
   }, []);
 
   return (
-    <main className="certs">
+    <div className="certs">
       {/* soft decorative shapes behind the content (same as About) */}
       <div className="certs-bg" aria-hidden="true">
         <span className="certs-bg-circle"></span>
@@ -263,6 +263,6 @@ export default function Certificates() {
       ))}
 
       {active && <CertModal item={active} onClose={() => setActive(null)} />}
-    </main>
+    </div>
   );
 }

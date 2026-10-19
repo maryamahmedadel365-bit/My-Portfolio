@@ -1,20 +1,23 @@
 import { useState, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
 import { PROFILE, NAV } from "../data/profile";
+import useActiveSection from "../utils/useActiveSection";
 import "../styles/navbar.css";
+
+const IDS = NAV.map((item) => item.id);
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const { pathname, hash } = useLocation();
   const sidebarRef = useRef(null);
   const menuBtnRef = useRef(null);
+  const active = useActiveSection(IDS);
 
-  const isActive = (item) =>
-    item.hash
-      ? pathname === "/" && hash === item.hash
-      : item.to === "/"
-      ? pathname === "/" && !hash
-      : pathname === item.to;
+  const goTo = (id) => {
+    setOpen(false);
+    // wait for the drawer to release the body scroll lock
+    setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }, 50);
+  };
 
   // Handle click outside, Escape key, and body scroll lock
   useEffect(() => {
@@ -52,18 +55,16 @@ export default function Navbar() {
 
   return (
     <header className="navbar">
-      <Link
-        to="/"
+      <a
+        href="#home"
         className="logo"
-        onClick={() => {
-          setOpen(false);
-          if (pathname === "/") {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }
+        onClick={(e) => {
+          e.preventDefault();
+          goTo("home");
         }}
       >
         {PROFILE.name}
-      </Link>
+      </a>
 
       <button
         ref={menuBtnRef}
@@ -77,7 +78,6 @@ export default function Navbar() {
         <span></span>
       </button>
 
-      {/* Dimmed backdrop overlay - sitting behind sidebar drawer */}
       <div
         className={`nav-backdrop ${open ? "open" : ""}`}
         onClick={() => setOpen(false)}
@@ -98,19 +98,17 @@ export default function Navbar() {
 
         <ul className="nav-links">
           {NAV.map((item) => (
-            <li key={item.label}>
-              <Link
-                to={item.hash ? item.to + item.hash : item.to}
-                className={isActive(item) ? "active" : ""}
-                onClick={() => {
-                  setOpen(false);
-                  if (item.to === pathname && !item.hash) {
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }
+            <li key={item.id}>
+              <a
+                href={`#${item.id}`}
+                className={active === item.id ? "active" : ""}
+                onClick={(e) => {
+                  e.preventDefault();
+                  goTo(item.id);
                 }}
               >
                 {item.label}
-              </Link>
+              </a>
             </li>
           ))}
         </ul>

@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { PROFILE, NAV } from "../data/profile";
 import "../styles/footer.css";
 
@@ -58,16 +57,16 @@ export default function Footer() {
             <ul className="footer-links">
               {NAV.map((item) => (
                 <li key={item.label}>
-                  <Link
-                    to={item.hash ? item.to + item.hash : item.to}
-                    onClick={() => {
-                      if (!item.hash) {
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }
-                    }}
-                  >
-                    {item.label}
-                  </Link>
+                  <a
+                   href={`#${item.id}`}
+                  onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                   >
+                  {item.label}
+                      </a>
+
                 </li>
               ))}
             </ul>

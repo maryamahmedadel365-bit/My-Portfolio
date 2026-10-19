@@ -62,32 +62,32 @@
 /* ---------- Background shapes (synced with About) ---------- */
 .certs-bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
 
-.certs-bg-circle {
+/* .certs-bg-circle {
   position: absolute;
   top: -170px; right: -150px;
   width: 560px; height: 560px;
   border-radius: 50%;
   background: #eaeff7;
   opacity: 0.75;
-}
+} */
 
 .certs-bg-ring {
   position: absolute;
-  top: 620px; left: -90px;
+  top: 500px; left: -90px;
   width: 220px; height: 220px;
   border-radius: 50%;
   border: 4px solid var(--yellow);
   opacity: 0.55;
 }
 
-.certs-bg-dots {
+/* .certs-bg-dots {
   position: absolute;
   top: 640px; right: 3%;
   width: 110px; height: 110px;
   background-image: radial-gradient(#b7c6da 2.5px, transparent 2.5px);
   background-size: 18px 18px;
 }
-.certs-bg-dots--b { top: auto; right: auto; bottom: 70px; left: 4%; width: 130px; height: 90px; }
+.certs-bg-dots--b { top: auto; right: auto; bottom: 70px; left: 4%; width: 130px; height: 90px; } */
 
 /* ---------- category sections ---------- */
 .cert-band {
@@ -579,7 +579,7 @@
 
 /* ---------- responsive ---------- */
 @media (max-width: 1000px) {
-  .certs-bg-circle { width: 360px; height: 360px; top: -120px; right: -120px; }
+  /*.certs-bg-circle { width: 360px; height: 360px; top: -120px; right: -120px; }*/
   .certs-bg-ring { display: none; }
   .certs-hero-band { padding: 60px var(--page-pad) 48px; }
   .cert-band { padding: 48px var(--page-pad) 56px; }

@@ -6,6 +6,7 @@
   --cream: #faf9f5;
   --soft-blue: #e8eef3;
   --text: #36566d;
+  --bk:#b7c6da;
   --arch: 190px 70px 0 0;
   --nav-h: 70px;
   --page-pad: 12%;
@@ -41,3 +42,32 @@ body {
 }
 
 a { text-decoration: none; }
+
+/* ==========================================================================
+   Single-page sections
+   Each page keeps its own padding, so these wrappers add no extra spacing.
+   ========================================================================== */
+
+/* offset for the fixed navbar when jumping to a section */
+section[id] { scroll-margin-top: var(--nav-h); }
+
+#home,
+#experience,
+#certificates,
+#projects {
+  position: relative;
+}
+
+/* yellow separator line between pages (Skills -> Certificates -> Projects).
+   It stops at the content edges, same as the line above "Skills". */
+/* #certificates::before,
+#projects::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: var(--page-pad);
+  right: var(--page-pad);
+  height: 4px;
+  background: var(--bk);
+  z-index: 2;
+} */

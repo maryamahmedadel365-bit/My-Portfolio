@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { PROFILE } from "../data/profile";
 import "../styles/hero.css";
 
@@ -22,7 +21,7 @@ export default function Hero() {
         <p>{PROFILE.summary}</p>
 
         <div className="buttons">
-          <Link className="primary-btn" to="/projects">View Projects</Link>
+         <a className="primary-btn" href="#projects">View Projects</a>
           <a className="secondary-btn" href={PROFILE.cvLink} download>Download CV</a>
         </div>
 
